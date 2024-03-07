@@ -27,10 +27,10 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # gem for authentication [https://github.com/heartcombo/devise]
-# gem "devise", "~> 4.9"
+gem "devise", "~> 4.9"
 
 # gem for multi-tenanting [https://github.com/ErwinM/acts_as_tenant]
-gem 'acts_as_tenant'
+gem 'acts_as_tenant', '~> 1.0.1'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
