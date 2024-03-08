@@ -4,5 +4,6 @@ class User < ApplicationRecord
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :members
-  has_many :accounts, through: :members
+  has_many :projects, through: :members
+  has_many :accounts, foreign_key: 'creator_id'
 end

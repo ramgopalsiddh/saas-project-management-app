@@ -1,6 +1,5 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: %i[ show edit update destroy ]
-  before_action :authorize_member, only: %i[ show edit update destroy ]
   # GET /accounts or /accounts.json
   def index
     @accounts = current_user.accounts
@@ -22,10 +21,10 @@ class AccountsController < ApplicationController
   # POST /accounts or /accounts.json
   def create
     @account = Account.new(account_params)
+    @account.creator_id = current_user.id # Assign current user's ID as creator_id
 
     respond_to do |format|
       if @account.save
-        @account.members.create(user: current_user, roles: {admin: true})
         format.html { redirect_to account_url(@account), notice: "Account was successfully created." }
         format.json { render :show, status: :created, location: @account }
       else
@@ -60,9 +59,6 @@ class AccountsController < ApplicationController
 
   private
 
-  def authorize_member
-    return redirect_to root_path, alert: 'You are not a member' unless @account.users.include? current_user
-  end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_account
