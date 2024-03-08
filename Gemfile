@@ -32,6 +32,9 @@ gem "devise", "~> 4.9"
 # gem for add member by invitation
 gem 'devise_invitable', '~> 2.0.0'
 
+# Add bootstrap view for devise
+gem 'devise-bootstrap-views', '~> 1.0'
+
 # gem for multi-tenanting [https://github.com/ErwinM/acts_as_tenant]
 gem 'acts_as_tenant', '~> 1.0.1'
 
