@@ -1,5 +1,4 @@
-class MembersController < ApplicationController
-  before_action :set_current_account
+class MembersController < AuthorizedController
 
   def index
     @member = @current_account.members
@@ -9,7 +8,7 @@ class MembersController < ApplicationController
     email = params[:email]
     return redirect_to account_members_path(@current_account), alert: "No email provided" if email.blank?
 
-    user = User.find_by(email:) || User.invite!({ email:  }, current_user) # current_user will be set as invited_by
+    user = User.find_by(email:) || User.invite!({ email:}, current_user) # current_user will be set as invited_by
     return redirect_to account_members_path(@current_account), alert: "Email Invalid" unless user.valid?
 
     user.members.find_or_create_by(account: @current_account, roles: {admin: false, editor: true})
@@ -17,9 +16,4 @@ class MembersController < ApplicationController
     redirect_to account_members_path(@current_account), notice: "#{email} invited!"
   end
 
-  private
-
-  def set_current_account
-    @current_account = Account.find(params[:account_id])
-  end
 end
