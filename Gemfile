@@ -35,6 +35,13 @@ gem 'devise_invitable', '~> 2.0.0'
 # gem for multi-tenanting [https://github.com/ErwinM/acts_as_tenant]
 gem 'acts_as_tenant', '~> 1.0.1'
 
+# gem for bootstrap 
+gem 'bootstrap', '~> 5.3.2'
+
+gem 'jquery-rails'
+
+gem 'dartsass-sprockets'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
