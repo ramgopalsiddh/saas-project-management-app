@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_08_110703) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_10_131630) do
   create_table "accounts", force: :cascade do |t|
     t.string "name"
     t.string "subdomain"
@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_08_110703) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "creator_id"
+    t.string "plan"
     t.index ["creator_id"], name: "index_accounts_on_creator_id"
   end
 
