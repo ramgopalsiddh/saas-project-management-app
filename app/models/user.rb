@@ -6,4 +6,10 @@ class User < ApplicationRecord
   has_many :members
   has_many :projects, through: :members
   has_many :accounts, foreign_key: 'creator_id'
+
+  # for define Admin in Members
+  def admin?
+    member = self.members.first
+    member.present? && member.admin?
+  end
 end
