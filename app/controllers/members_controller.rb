@@ -1,4 +1,5 @@
 class MembersController < AuthorizedController
+  before_action :set_project
 
   def index
     @member = @current_project.members
@@ -24,6 +25,12 @@ class MembersController < AuthorizedController
     else
       redirect_to project_members_path(@current_project), alert: "Only admins can send invitations!"
     end
+  end
+
+  private
+
+  def set_project
+    @project = Project.find(params[:project_id])
   end
 
 end
