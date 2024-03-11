@@ -23,7 +23,6 @@ class ProjectsController < ApplicationController
   # POST /projects or /projects.json
   def create
     @project = Project.new(project_params)
-    @project.plan = 'free'
     respond_to do |format|
       if @project.save
         @project.members.create(user: current_user, roles: {admin: true})
@@ -66,6 +65,10 @@ class ProjectsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
     def set_project
       @project = Project.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      project_id = params[:id]
+      flash[:alert] = "You are not have Project with Project ID #{project_id}."
+      redirect_to projects_path
     end
 
     # Only allow a list of trusted parameters through.
