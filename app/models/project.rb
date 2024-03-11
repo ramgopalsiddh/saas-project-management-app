@@ -4,7 +4,7 @@ class Project < ApplicationRecord
 
   attr_accessor :plan
 
-  validates_uniqueness_of :name, if: :name_changed?
+  validates_uniqueness_of :name, scope: :account_id, if: :name_changed? # scope use for mantain uniqueness only in tenant
   validate :free_plan_can_only_have_one_project, on: :create
 
   has_many :members, dependent: :destroy
@@ -16,4 +16,6 @@ class Project < ApplicationRecord
     end
   end
 
+  # TODO 
+  # Add project show limit if plan is free
 end
