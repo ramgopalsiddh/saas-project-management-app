@@ -10,12 +10,15 @@ class Project < ApplicationRecord
   has_many :members, dependent: :destroy
   has_many :users, through: :members # Assuming roles are associated with members
 
+  # Set limit of project according to plan
   def free_plan_can_only_have_one_project
-    if account.plan == 'free' && account.projects.count >= 1
+    if account.plan == 'free' && account.projects.count >= 1 && !premium_plan?
       errors.add(:base, "Free plan can have only one project")
     end
   end
+  
+  def premium_plan?
+    account.plan == 'premium'
+  end
 
-  # TODO 
-  # Add project show limit if plan is free
 end
