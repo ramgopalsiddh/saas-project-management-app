@@ -4,7 +4,13 @@ class ProjectsController < ApplicationController
 
   # GET /projects or /projects.json
   def index
-    @projects = current_user.projects
+    begin
+      @projects = current_user.projects
+      # show errer if you don't have tenant of 
+    rescue ActsAsTenant::Errors::NoTenantSet
+      flash[:alert] = "You do not have a tenant. Please set a tenant before access."
+      redirect_to root_path
+    end
   end
 
   # GET /projects/1 or /projects/1.json
