@@ -7,6 +7,7 @@ class Project < ApplicationRecord
   validates_uniqueness_of :name, scope: :account_id, if: :name_changed? # scope use for mantain uniqueness only in tenant
   validate :free_plan_can_only_have_one_project, on: :create
 
+  has_many :artifacts, dependent: :destroy
   has_many :members, dependent: :destroy
   has_many :users, through: :members # Assuming roles are associated with members
 
