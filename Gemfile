@@ -45,6 +45,9 @@ gem 'jquery-rails'
 
 gem 'dartsass-sprockets'
 
+# strip gem for payment [https://github.com/stripe/stripe-ruby]
+gem 'stripe'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
