@@ -49,11 +49,13 @@ class AccountsController < ApplicationController
 
   # DELETE /accounts/1 or /accounts/1.json
   def destroy
-    @account.destroy!
+    ActsAsTenant.without_tenant do
+      @account.destroy!
 
-    respond_to do |format|
-      format.html { redirect_to accounts_url, notice: "Account was successfully destroyed." }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to accounts_url, notice: "Account was successfully destroyed." }
+        format.json { head :no_content }
+      end
     end
   end
 
