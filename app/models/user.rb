@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :members
   has_many :projects, through: :members
   has_many :accounts, foreign_key: 'creator_id'
+  belongs_to :account
+
 
   # for define Admin in Members
   def admin?

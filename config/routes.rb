@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   resources :accounts
   devise_for :users, controllers: { registrations: 'registrations' }
 
+  match '/plan/edit' => 'plans#edit', via: :get, as: :edit_plan
+  match '/plan/update' => 'plans#update', via: [:put, :patch], as: :update_plan
+
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
