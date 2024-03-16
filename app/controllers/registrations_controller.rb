@@ -68,6 +68,11 @@ class RegistrationsController < Devise::RegistrationsController
       creator: user,
       plan: params[:account][:plan]
     )
+    if user == account.creator
+      # Set the user as an admin if they are the creator
+      user.update(is_admin: true)
+    end
+    
     user.reload # Reload user to ensure association is loaded
     account
   end
