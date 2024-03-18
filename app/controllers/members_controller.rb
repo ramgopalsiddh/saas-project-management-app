@@ -1,5 +1,7 @@
 class MembersController < AuthorizedController
   before_action :set_project
+  before_action :find_project
+  before_action :find_member, only: [:destroy]
 
   def index
     @member = @current_project.members
@@ -27,10 +29,30 @@ class MembersController < AuthorizedController
     end
   end
 
+  def destroy
+    # Check if the current user is an admin and is not deleting themselves
+    if current_user.admin? && current_user != @member.user
+      @member.destroy
+      flash[:notice] = "Member successfully removed from the project."
+    else
+      flash[:alert] = "You do not have permission to remove this member."
+    end
+    redirect_to project_members_path(@current_project)
+  end
+
+
   private
 
   def set_project
     @project = Project.find(params[:project_id])
+  end
+
+  def find_project
+    @current_project = Project.find(params[:project_id])
+  end
+
+  def find_member
+    @member = @current_project.members.find(params[:id])
   end
 
 end
