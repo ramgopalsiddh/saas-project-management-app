@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       end
     end
     resources :artifacts
+    resources :tasks
   end
   resources :accounts
   devise_for :users, controllers: { registrations: 'registrations' }
