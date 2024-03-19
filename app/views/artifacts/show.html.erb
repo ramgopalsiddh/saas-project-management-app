@@ -5,7 +5,7 @@
 <div>
   <%= link_to "Back to artifacts", project_artifacts_path, class: "btn btn-secondary " %>
 
-<% if @current_member&.admin? %>
+<% if current_user.admin? %>
   <%= link_to "Edit this artifact", edit_project_artifact_path(@project, @artifact), class: "btn btn-primary me-3" %>
 </div>
 
