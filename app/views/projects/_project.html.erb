@@ -1,19 +1,19 @@
 <div id="<%= dom_id project %>" class="card mt-3">
   <div class="card-body">
     <p class="card-text">
-      <strong>Account:</strong> <%= project.account_id %>
+      <strong>Tenant Domain :</strong> <%= project.account.domain %>
     </p>
 
     <p class="card-text">
-      <strong>Name:</strong> <%= project.name %>
+      <strong>Project Name :</strong> <%= project.name %>
     </p>
 
     <p class="card-text">
-      <strong>Details:</strong> <%= project.details %>
+      <strong>Project Details :</strong> <%= project.details %>
     </p>
 
     <p class="card-text">
-      <strong>Expected Completion Date:</strong> <%= project.expected_completion_date %>
+      <strong>Expected Completion Date :</strong> <%= project.expected_completion_date %>
     </p>
   </div>
 </div>
