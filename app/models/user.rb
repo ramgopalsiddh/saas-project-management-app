@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :members
   has_many :projects, through: :members
-  has_many :accounts, foreign_key: 'creator_id'
+  has_many :accounts, foreign_key: 'creator_id', dependent: :destroy
 
   # Add the is_admin attribute
   attribute :is_admin, :boolean, default: false

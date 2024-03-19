@@ -6,4 +6,8 @@ class Member < ApplicationRecord
   def admin?
     roles["admin"] == true
   end
+
+  def editor?
+    roles["editor"] == true
+  end
 end
