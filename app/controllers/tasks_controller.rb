@@ -29,7 +29,10 @@ class TasksController < ApplicationController
       if @task.save
         redirect_to project_tasks_path(@task.project, @task), notice: 'Task was successfully created.'
       else
-        render :new
+        respond_to do |format|
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @task.errors, status: :unprocessable_entity }
+        end
       end
     end
     
@@ -40,7 +43,10 @@ class TasksController < ApplicationController
       if @task.update(task_params)
         redirect_to project_tasks_path(@task.project), notice: 'Task was successfully updated.'
       else
-        render :edit
+        respond_to do |format|
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @task.errors, status: :unprocessable_entity }
+        end
       end
     end
     
