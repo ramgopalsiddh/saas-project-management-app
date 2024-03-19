@@ -2,6 +2,15 @@
 
 <%= form_with(model: [@task.project, @task], url: project_task_path(@task.project)) do |form| %>
   <%= form.hidden_field :project_id, value: @task.project_id %>
+  <% if current_user.admin? %>
+    <div class="field">
+      <%= form.label :user_id, 'Assign to:' %>
+      <%= form.select :user_id, options_for_select(@task.project.members.map{ |member| [member.user.email, member.user.id] }), include_blank: true %>
+    </div>
+  <% else %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  <% end %>
+  
   <% if @task.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>

@@ -14,8 +14,9 @@
         <% end %>
       </div>
 
-      <%= link_to "Members", project_members_path(@project), class: "btn btn-info btn-block" %>
-      <%= link_to "Artifacts", project_artifacts_path(@project), class: "btn btn-info btn-block" %>
+      <%= link_to "Members", project_members_path(@project), class: "btn btn-primary btn-block me-2" %>
+      <%= link_to "Artifacts", project_artifacts_path(@project), class: "btn btn-secondary btn-block me-2" %>
+      <%= link_to 'Tasks', project_tasks_path(@project), class: "btn btn-info btn-block" %>
     </div>
   </div>
 

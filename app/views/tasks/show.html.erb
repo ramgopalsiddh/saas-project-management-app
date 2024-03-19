@@ -6,6 +6,14 @@
   <strong>Done:</strong>
   <%= @task.done ? 'Yes' : 'No' %>
 </p>
+<p>
+  <strong>Project :</strong>
+  <%= @task.project.name %>
+</p>
+<p>
+  <strong>Assign to / Created by :</strong>
+  <%= @task.user.email %>
+</p>
 
 <%= link_to 'Edit', edit_project_task_path(@task.project, @task) %> |
 <%= link_to 'Back', project_tasks_path(@task.project) %>
