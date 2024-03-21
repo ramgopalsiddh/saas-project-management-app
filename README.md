@@ -1,3 +1,47 @@
+# SaaS Project Management App
+
+- This is a Project Management App Build with RubyOnRails, Multi-tenancy, Stripe, Devise & Bootstrap
+- Use [Devise](https://github.com/heartcombo/devise) for authentication
+- Use [Stripe API](https://docs.stripe.com/api) for accept payment
+- Use [Acts As Tenant Gem](https://github.com/ErwinM/acts_as_tenant) for Multi-tenancy
+- Use [Active Storage](https://github.com/rails/rails/tree/main/activestorage) for store artifacts
+- Use lvh.me for achieve Multi-tenancy in single browser
+
+
+
+- ### Features
+  1. Create an account with a subdomain or domain for multi-tenancy.
+  2. Edit account and account plans.
+  3. Add and edit projects.
+  4. Add, edit, and delete artifacts and tasks in projects (admin only).
+  5. Invite and remove members from projects (admin only).
+  6. Project creators are admins, while others are editors with limited access.
+  7. Editors can only view their own artifacts and cannot edit or delete them.
+  8. Editors cannot invite new members or delete existing members.
+  9. Editors cannot delete or edit existing projects.
+  10. Editors can only view their assigned tasks and perform operations on them.
+  11. Admins can reassign tasks to other members.
+  12. Admins can view all tasks in projects.
+  13. If you are not a member of project you can't access project & project's info.
+  14. Users can edit their profiles and reset their passwords etc.
+
+---
+## YouTube demo video link 
+
+ - ### Project's YouTube video link :- https://youtu.be/xpHL7vgkadk
+---
+
+#### This Project is part of [Udemy Course "The Complete Ruby on Rails Developer Course"](https://www.udemy.com/course/the-complete-ruby-on-rails-developer-course/)
+
+---
+
+#### For more info OR suggestion contact me on
+
+- ### My Twitter :- <a href="https://twitter.com/ramgopalsiddh1/"> Twitter/ramgopal </a>
+
+- ### Portfolio :- <a href="https://ramgopal.dev/">ramgopal.dev</a>
+---
+
 ## Screenshots
 
 #### Home page without Sign up
@@ -36,10 +80,7 @@
 #### Show Tasks, Create & Edit operation
   <img src="screenshots/12_task.png">
 
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
+---
 
 Things you may want to cover:
 
@@ -47,11 +88,11 @@ Things you may want to cover:
 
 * Ruby version: ruby 3.2.3 (2024-01-18 revision 52bb2ac0a6) [x86_64-linux]
 
-* [I Foloow This Article for Add Bootstrap 5 in Rails 7  ](https://medium.com/@pietropugliesi/javascript-bootstrap-asset-bundling-in-ruby-on-rails-7-3640a220f2ce)
+* [I Follow This Article for Add Bootstrap 5 in Rails 7  ](https://medium.com/@pietropugliesi/javascript-bootstrap-asset-bundling-in-ruby-on-rails-7-3640a220f2ce)
 
 * Use Devise Gem for authentication for more info visit [Devise Gem's Github](https://github.com/heartcombo/devise)
 
-* For Setup this project follow these steps
+* To Setup this project follow these steps
   1. Get code 
   2. Set up [Stripe API key](https://docs.stripe.com/api)
   3. Run `bundle install` for install all Gem's from Gemfile
@@ -71,16 +112,3 @@ Things you may want to cover:
   9. dartsass-sprockets Gem
   10. stripe gem
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
