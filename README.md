@@ -1,3 +1,41 @@
+## Screenshots
+
+#### Home page without Sign up
+  <img src="screenshots/1_home_without_signup.png">
+
+#### Sign up Form
+  <img src="screenshots/2_signup_form.png">
+
+#### Stripe Payment Logs
+  <img src="screenshots/3_stripe_log.png">
+
+#### User edit, reset password & Resend confirmation link
+  <img src="screenshots/4_user_edit.png">
+
+#### Accounts Create, Edit & Update operation
+  <img src="screenshots/5_account.png">
+
+#### Show all Accounts
+  <img src="screenshots/6_account_home.png">
+
+#### Projects Create, Edit operation & Show all projects 
+  <img src="screenshots/7_project.png">
+
+#### Show Project 
+  <img src="screenshots/8_project_show.png">
+
+#### Members page
+  <img src="screenshots/9_members.png">
+
+#### Show Artifacts & Create & Edit operation
+  <img src="screenshots/10_artifact.png">
+
+#### Show an Artifact
+  <img src="screenshots/11_artifact_show.png">
+
+#### Show Tasks, Create & Edit operation
+  <img src="screenshots/12_task.png">
+
 # README
 
 This README would normally document whatever steps are necessary to get the
